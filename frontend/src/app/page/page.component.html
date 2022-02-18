@@ -1,1 +1,20 @@
-<p>page works!</p>
+<div fxLayout='column' fxLayoutAlign="center center" style="margin-top: 50px">
+  <h1>Shorten your link!</h1>
+
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter your URL here</mat-label>
+      <input matInput>
+
+    </mat-form-field>
+
+    <button style="margin-top: 20px; display: block" mat-raised-button color="primary">Shorten!</button>
+  </form>
+
+  <div *ngIf="showLink">
+    <p>Your link now looks like this:</p>
+
+
+  </div>
+
+</div>
