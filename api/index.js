@@ -9,6 +9,7 @@ const port = 8000;
 
 app.use(cors({origin: 'http://localhost:4200'}));
 app.use(express.json());
+app.use('/links', links);
 
 
 const run = async () => {
