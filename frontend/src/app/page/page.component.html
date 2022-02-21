@@ -4,7 +4,7 @@
   <form (ngSubmit)="onSubmit()" #f="ngForm">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Enter your URL here</mat-label>
-      <input matInput>
+      <input matInput name="url" #url>
 
     </mat-form-field>
 
@@ -12,9 +12,9 @@
   </form>
 
   <div *ngIf="showLink">
-    <p>Your link now looks like this:</p>
+    <p style="margin-top: 20px;">Your link now looks like this:</p>
 
-
+    <a href="/"> {{ apiUrl + '/' + shortedLink.shortUrl }}</a>
   </div>
 
 </div>

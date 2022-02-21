@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LinksService } from '../services/links.service';
+import { Link } from '../link.model';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-page',
@@ -8,8 +9,10 @@ import { LinksService } from '../services/links.service';
   styleUrls: ['./page.component.sass']
 })
 export class PageComponent implements OnInit {
-  @ViewChild('f') form!: NgForm;
+  @ViewChild('url') url!: ElementRef;
   showLink = false;
+  shortedLink!: Link;
+  apiUrl = environment.apiUrl;
 
   constructor(private linkService: LinksService) { }
 
@@ -17,6 +20,10 @@ export class PageComponent implements OnInit {
   }
 
   onSubmit() {
-
+    const originalUrl = this.url.nativeElement.value;
+    this.linkService.shortLink(originalUrl).subscribe(link => {
+      this.showLink = true;
+      this.shortedLink = link;
+    })
   }
 }
