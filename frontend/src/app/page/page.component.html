@@ -14,7 +14,7 @@
   <div *ngIf="showLink">
     <p style="margin-top: 20px;">Your link now looks like this:</p>
 
-    <a href="/"> {{ apiUrl + '/' + shortedLink.shortUrl }}</a>
+    <a href="http://localhost:8000/links/{{ shortedLink.shortUrl }}"> {{ apiUrl + '/' + shortedLink.shortUrl }}</a>
   </div>
 
 </div>

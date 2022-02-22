@@ -24,4 +24,8 @@ export  class LinksService {
       })
     );
   }
+
+  onRedirect(url: string){
+    return  this.http.get(`${environment.apiUrl}/links/${url}`)
+  }
 }

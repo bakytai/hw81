@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/:shortUrl',async (req, res, next) => {
     try {
-        const link = await Link.findOne(req.params.shortUrl);
+        const link = await Link.findOne({shortUrl: req.params.shortUrl});
 
         if (!link) {
             return res.status(404).send({message: 'Not found'});
